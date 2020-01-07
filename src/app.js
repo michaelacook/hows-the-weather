@@ -2,13 +2,8 @@ let unit = "metric";
 let country;
 let city;
 let protocol;
-let secure;
-if (window.location.protocol == 'https:') {
-    secure = true;
-} else {
-    secure = false;
-}
-secure ? protocol = 'https:' : protocol = 'http:';
+window.location.protocol === 'https:' ? protocol = 'https:'
+    : protocol = 'http:';
 const toggle = document.getElementById('toggle');
 const getWeather = document.getElementById('get-weather');
 
