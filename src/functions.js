@@ -71,7 +71,7 @@ const processData = (response) => {
         count: country,
         weatherIcon: icon,
         temp: temperature,
-        tempUn: unit,
+        tempUn: tempUnit,
         feels: feelsLike,
         wind: windSpeed,
         humid: humidity,

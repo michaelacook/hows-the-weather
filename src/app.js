@@ -20,7 +20,6 @@ const getWeatherData = (city, countryCode) => {
             const response = JSON.parse(request.responseText);
             const weather = response.weather[0];
             createWeatherDiv(response);
-            // changeBackground(weather);
             console.log(response);
         }
     }
