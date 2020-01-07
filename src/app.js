@@ -1,12 +1,22 @@
 let unit = "metric";
 let country;
 let city;
+let protocol;
+let secure;
+if (window.location.protocol == 'https:') {
+    secure = true;
+} else {
+    secure = false;
+}
+secure ? protocol = 'https:' : protocol = 'http:';
 const toggle = document.getElementById('toggle');
 const getWeather = document.getElementById('get-weather');
 
+
 const getWeatherData = (city, countryCode) => {
     const key = "420a714be7f2e48ad0bbdbb97741730c";
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${key}&units=${unit}`;
+    const url = `${protocol}//api.openweathermap.org/data/2.5/weather?q=
+        ${city},${countryCode}&appid=${key}&units=${unit}`;
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.send();
