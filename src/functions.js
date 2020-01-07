@@ -16,9 +16,7 @@ const createWeatherDiv = (response) => {
     const div = document.createElement("DIV");
     div.className = 'col-lg-8 mx-auto text-white';
     div.style.lineHeight = "0.5";
-
-    const content = `
-        <div>
+    const content = `<div>
             <div class="d-inline-block mt-5">
                 <h4 class="font-weight-bold p-0 m-0">${icon}${response.name},
                 ${response.sys.country} Weather</h4>
