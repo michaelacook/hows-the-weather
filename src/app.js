@@ -1,9 +1,6 @@
 let unit = "metric";
 let country;
 let city;
-let protocol;
-window.location.protocol === 'https:' ? protocol = 'https:'
-    : protocol = 'http:';
 const toggle = document.getElementById('toggle');
 const getWeather = document.getElementById('get-weather');
 

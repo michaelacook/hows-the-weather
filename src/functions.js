@@ -1,5 +1,9 @@
 /* API docs: https://openweathermap.org/current#list */
 
+let protocol;
+window.location.protocol === 'https:' ? protocol = 'https:'
+    : protocol = 'http:';
+
 const formatTime = (response) => {
     const sunriseTime = new Date(response.sys.sunrise*1000);
     const sunsetTime = new Date(response.sys.sunset*1000);
@@ -59,7 +63,7 @@ const processData = (response) => {
     const country = response.sys.country;
     const riseSet = formatTime(response);
     const weather = response.weather[0];
-    const iconSrc = `http://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+    const iconSrc = `${protocol}//openweathermap.org/img/wn/${weather.icon}@2x.png`;
     const icon = `<img src=${iconSrc} />`;
     const temperature = Math.round(response.main.temp);
     const feelsLike = Math.round(response.main.feels_like);
