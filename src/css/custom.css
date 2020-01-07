@@ -1,0 +1,29 @@
+body {
+    font-family: 'Roboto', sans-serif !important;
+    background: #003366;
+}
+
+.sunny {
+    background-image: url('../img/sunny.jpg');
+    background-repeat: no-repeat;
+}
+
+.rain {
+    background-image: url('../img/rain.jpg');
+}
+
+.center {
+    position: relative;
+    top: 150px;
+}
+
+#temperature {
+    display: inline-block;
+    font-size: 4.2em;
+    color: #FEE953;
+}
+
+#temp-unit {
+    font-size: 1.4em;
+    vertical-align: top;
+}
