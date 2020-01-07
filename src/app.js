@@ -1,10 +1,12 @@
-
 let unit = "metric";
+let country;
+let city;
 const toggle = document.getElementById('toggle');
+const getWeather = document.getElementById('get-weather');
 
 const getWeatherData = (city, countryCode) => {
     const key = "420a714be7f2e48ad0bbdbb97741730c";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${key}&units=${unit}`;
+    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${key}&units=${unit}`;
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.send();
@@ -19,13 +21,17 @@ const getWeatherData = (city, countryCode) => {
     }
 }
 
-document.getElementById('get-weather').addEventListener('click', (e) => {
-    let country = document.getElementById('country').value.toLowerCase();
-    let city = document.getElementById('city').value;
-    getWeatherData(city, country)
+getWeather.addEventListener('click', (e) => {
+    getWeather.blur();
+    country = document.getElementById('country').value.toLowerCase();
+    city = document.getElementById('city').value;
+    getWeatherData(city, country);
 });
 
 // Toggle metric/imperial
 toggle.onchange = () => {
     toggle.checked ? unit = 'metric' : unit = 'imperial';
+    if (city && country) {
+        getWeatherData(city, country);
+    }
 };
