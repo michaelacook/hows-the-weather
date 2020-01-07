@@ -1,4 +1,5 @@
-var unit = "metric";
+
+let unit = "metric";
 const toggle = document.getElementById('toggle');
 
 const getWeatherData = (city, countryCode) => {
