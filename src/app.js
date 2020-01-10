@@ -4,20 +4,23 @@ let city;
 const toggle = document.getElementById('toggle');
 const getWeather = document.getElementById('get-weather');
 
-
+// Fetch data
 const getWeatherData = (city, countryCode) => {
     const key = "420a714be7f2e48ad0bbdbb97741730c";
     const url = `${protocol}//api.openweathermap.org/data/2.5/weather?q=
-        ${city},${countryCode}&appid=${key}&units=${unit}`;
+        ${city},${countryCode}&units=${unit}&appid=${key}`;
     const request = new XMLHttpRequest();
     request.open('GET', url);
     request.send();
     request.onreadystatechange = () => {
-        if (request.readyState === 4 && request.status === 200) {
-            const response = JSON.parse(request.responseText);
-            const weather = response.weather[0];
-            createWeatherDiv(response);
-            console.log(response);
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                const response = JSON.parse(request.responseText);
+                const weather = response.weather[0];
+                createWeatherDiv(response);
+            } else {
+                displayError(request.status);
+            }
         }
     }
 }

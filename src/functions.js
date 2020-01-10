@@ -96,3 +96,18 @@ const createWeatherDiv = (response) => {
     document.getElementById('city').value = "";
     document.querySelector('#weather').appendChild(div);
 }
+
+// Display an error on bad search or server error. Accepts http status code as arg
+const displayError = (httpStatus) => {
+    let message;
+    if (httpStatus >= 500) {
+        message = 'There was a server-side error. Try again later.';
+    } else if (httpStatus >= 400) {
+        message = 'Oops! There was a problem with your search. Try again.';
+    }
+    const error = `<h3 class="text-white text-center" id="error">${message}</h3>`;
+    document.getElementById('headline').style.display = "none";
+    document.querySelector('#weather').innerHTML = "";
+    document.getElementById('city').value = "";
+    document.querySelector('#weather').innerHTML = error;
+}

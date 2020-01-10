@@ -3,15 +3,6 @@ body {
     background: #003366;
 }
 
-.sunny {
-    background-image: url('../img/sunny.jpg');
-    background-repeat: no-repeat;
-}
-
-.rain {
-    background-image: url('../img/rain.jpg');
-}
-
 .center {
     position: relative;
     top: 150px;
@@ -23,7 +14,7 @@ body {
     color: #FEE953;
 }
 
-#headline {
+#headline, #error {
     position:relative;
     top: 220px;
 }
