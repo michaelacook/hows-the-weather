@@ -36,3 +36,6 @@ toggle.onchange = () => {
         getWeatherData(city, country);
     }
 };
+
+// Prevent form submission
+document.querySelector('form').addEventListener('submit', e => e.preventDefault());
