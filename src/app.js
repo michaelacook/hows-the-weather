@@ -16,7 +16,6 @@ const getWeatherData = (city, countryCode) => {
         if (request.readyState === 4) {
             if (request.status === 200) {
                 const response = JSON.parse(request.responseText);
-                const weather = response.weather[0];
                 createWeatherDiv(response);
             } else {
                 displayError(request.status);
