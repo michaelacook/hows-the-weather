@@ -1,3 +1,6 @@
+/* Fetch data with the XMLHttpRequest API */
+
+
 let unit = "metric";
 let country;
 let city;
@@ -15,8 +18,8 @@ const getWeatherData = (city, countryCode) => {
     request.onreadystatechange = () => {
         if (request.readyState === 4) {
             if (request.status === 200) {
-                const response = JSON.parse(request.responseText);
-                createWeatherDiv(response);
+                const data = JSON.parse(request.responseText);
+                createWeatherDiv(data);
             } else {
                 displayError(request.status);
             }
